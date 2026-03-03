@@ -1,123 +1,174 @@
 <!DOCTYPE html>
 <html lang="kk">
 <head>
-<meta charset="UTF-8">
-<meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>8 Наурыз құттықтау 💐</title>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>8 Наурыз құттықтау 💐</title>
 
-<style>
-/* Негізгі стильдер */
-body {
-    margin: 0;
-    padding: 20px; /* Шетінен бос орын */
-    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
-    background: linear-gradient(to bottom, #ffdde1, #ee9ca7);
-    display: flex;
-    justify-content: center;
-    align-items: flex-start; /* Жоғарыдан бастау (жылжыту үшін) */
-    min-height: 100vh; /* Ең аз биіктік экран бойымен */
-    text-align: center;
-    color: white;
-    overflow-y: auto; /* Төмен қарай жылжытуға рұқсат */
-}
+    <script src="https://cdn.jsdelivr.net/npm/canvas-confetti@1.6.0/dist/confetti.browser.min.js"></script>
+    <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@400;700&family=Pacifico&display=swap" rel="stylesheet">
 
-.container {
-    max-width: 600px;
-    width: 100%;
-    background: rgba(255, 255, 255, 0.1); /* Сәл көрінетін фон */
-    padding: 20px;
-    border-radius: 20px;
-    backdrop-filter: blur(5px); /* Әйнек эффектісі */
-    box-shadow: 0 10px 30px rgba(0,0,0,0.1);
-    margin-top: 20px;
-    margin-bottom: 20px;
-}
+    <style>
+        body {
+            margin: 0;
+            padding: 20px;
+            font-family: 'Montserrat', sans-serif;
+            background: linear-gradient(135deg, #ffdde1 0%, #ee9ca7 100%);
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            min-height: 100vh;
+            text-align: center;
+            color: white;
+            overflow-x: hidden;
+        }
 
-h1 {
-    font-size: 28px; /* Смартфон үшін оңтайлы */
-    margin-bottom: 20px;
-    animation: fadeIn 2s ease-in-out;
-    line-height: 1.4;
-}
+        .container {
+            max-width: 500px;
+            width: 100%;
+            background: rgba(255, 255, 255, 0.15);
+            padding: 30px;
+            border-radius: 30px;
+            backdrop-filter: blur(10px);
+            box-shadow: 0 15px 35px rgba(0,0,0,0.1);
+            border: 1px solid rgba(255, 255, 255, 0.2);
+        }
 
-/* Мәтін блогы */
-#message {
-    font-size: 18px;
-    line-height: 1.6;
-    display: none; /* Басында мүлдем көрсетпеу */
-    text-align: left; /* Оқуға ыңғайлы болу үшін */
-    background: white;
-    color: #333;
-    padding: 25px;
-    border-radius: 15px;
-    margin-top: 20px;
-    white-space: pre-line; /* Жаңа жолдарды сақтау үшін */
-    box-shadow: 0 5px 15px rgba(0,0,0,0.2);
-}
+        h1 {
+            font-size: 24px;
+            margin-bottom: 25px;
+            text-shadow: 2px 2px 4px rgba(0,0,0,0.1);
+        }
 
-button {
-    padding: 15px 35px;
-    font-size: 18px;
-    border: none;
-    border-radius: 50px;
-    background: #ff4d6d;
-    color: white;
-    cursor: pointer;
-    font-weight: bold;
-    box-shadow: 0 4px 15px rgba(0,0,0,0.2);
-    transition: 0.3s;
-}
+        /* Шақырту блогы */
+        #message {
+            display: none;
+            background: #fff;
+            padding: 30px;
+            border-radius: 25px;
+            margin-top: 20px;
+            box-shadow: 0 10px 25px rgba(0,0,0,0.1);
+            animation: slideUp 1s ease-out forwards;
+            text-align: center;
+        }
 
-button:hover {
-    transform: scale(1.05);
-    background: #ff758c;
-}
+        /* Алтын калиграфия стилі */
+        .calligraphy {
+            font-family: 'Pacifico', cursive;
+            font-size: 22px;
+            line-height: 1.6;
+            background: linear-gradient(to bottom, #bf953f, #fcf6ba, #b38728, #fcf6ba, #aa771c);
+            -webkit-background-clip: text;
+            background-clip: text;
+            color: transparent;
+            margin-bottom: 15px;
+        }
 
-/* Анимация */
-@keyframes fadeIn {
-    from {opacity: 0; transform: translateY(-20px);}
-    to {opacity: 1; transform: translateY(0);}
-}
+        .details {
+            color: #444;
+            font-size: 18px;
+            margin: 15px 0;
+        }
 
-/* Планшет пен Компьютер үшін өлшемдерді үлкейту */
-@media (min-width: 768px) {
-    h1 { font-size: 36px; }
-    #message { font-size: 20px; }
-    .container { margin-top: 50px; }
-}
-</style>
+        .highlight-gold {
+            font-weight: bold;
+            color: #b38728; /* Алтын түс */
+        }
+
+        button {
+            padding: 18px 40px;
+            font-size: 18px;
+            border: none;
+            border-radius: 50px;
+            background: #ff4d6d;
+            color: white;
+            cursor: pointer;
+            font-weight: bold;
+            box-shadow: 0 8px 20px rgba(255, 77, 109, 0.4);
+            transition: 0.3s;
+        }
+
+        button:hover {
+            transform: scale(1.05);
+            background: #ff758c;
+        }
+
+        @keyframes slideUp {
+            from { opacity: 0; transform: translateY(40px); }
+            to { opacity: 1; transform: translateY(0); }
+        }
+    </style>
 </head>
-
 <body>
 
-<div class="container">
-    <h1>🌸 8-наурыз халықаралық қыз-келіншектер мейрамы құтты болсын! 🌸</h1>
-    
-    <button id="btn" onclick="showMessage()">Құттықтауды ашу 💌</button>
+    <audio id="myAudio" loop>
+        <source src="music.mp3" type="audio/mpeg">
+    </audio>
 
-    <div id="message">
-        <strong>Құрметті 11 “Ә” сыныптың ару қыздары және ардақты тәрбиешіміз – Малика апай!</strong>
+    <div class="container">
+        <h1>🌸 Мерекеңізбен! 🌸</h1>
+        
+        <button id="btn" onclick="showMessage()">Шақыртуды ашу 💌</button>
 
-        Сіздерді көктемнің ең көркем мерекесі — 8 наурыз Халықаралық әйелдер күнімен шын жүректен құттықтаймыз! 🌸
-        Әрдайым жүздеріңізден күлкі кетпей, жүректеріңіз махаббат пен мейірімге толы болсын. Армандарыңыз асқақ, қадамдарыңыз нық, болашақтарыңыз жарқын болғай!
-        Малика апай, сіздің ақыл-кеңесіңіз бен қамқорлығыңыз біз үшін әрқашан үлкен тірек. Сізге зор денсаулық, шығармашылық табыс және шәкірттеріңіздің биік жетістіктерін көру бақыты бұйырсын!
-        Осы мерекеге орай, баршаңызды <strong>9 наурыз күні сағат 18:00-де “Кәусар” шайханасында</strong> өтетін ауызашар дастарханына құрметпен шақырамыз! 
-        Кешіміз жылы жүзді әңгіме, шынайы күлкі және жақсы тілектерге толы болсын!
+        <div id="message">
+            <div style="font-size: 40px;">🌹</div>
+            <div class="calligraphy">
+                Құрметті арулар мен Малика апай!
+            </div>
+            
+            <div class="details">
+                Сіздерді 8-наурыз мерекесімен құттықтаймыз! Көктемдей құлпырып жүре беріңіздер. 🌸
+                <br><br>
+                Сіздерді <b>ауызашарға</b> шақырамыз:
+                <br>
+                📅 <span class="highlight-gold">9 наурыз, 18:00</span>
+                <br>
+                📍 <span class="highlight-gold">“Кәусар” шайханасы</span>
+            </div>
 
-        <strong>Ізгі тілекпен:</strong> 11 “Ә” сыныбы ұлдары және Дастан ағай.
+            <hr style="border:0; border-top:1px solid #eee; margin:20px 0;">
+            <div style="color:#888; font-size:14px;">Ізгі тілекпен: 11 “Ә” ұлдары</div>
+        </div>
     </div>
-</div>
 
-<script>
-function showMessage() {
-    var msg = document.getElementById("message");
-    var btn = document.getElementById("btn");
-    
-    msg.style.display = "block"; // Мәтінді көрсету
-    btn.style.display = "none";  // Батырманы жасыру (ыңғайлы болу үшін)
-}
-</script>
+    <script>
+        function showMessage() {
+            var msg = document.getElementById("message");
+            var btn = document.getElementById("btn");
+            var audio = document.getElementById("myAudio");
 
+            // Музыканы қосу
+            if (audio) { audio.play().catch(e => console.log("Audio error")); }
+
+            msg.style.display = "block";
+            btn.style.display = "none";
+
+            // Конфетти
+            var end = Date.now() + (3 * 1000);
+            var colors = ['#ff69b4', '#bf953f', '#ffffff'];
+
+            (function frame() {
+                confetti({
+                    particleCount: 3,
+                    angle: 60,
+                    spread: 55,
+                    origin: { x: 0 },
+                    colors: colors
+                });
+                confetti({
+                    particleCount: 3,
+                    angle: 120,
+                    spread: 55,
+                    origin: { x: 1 },
+                    colors: colors
+                });
+
+                if (Date.now() < end) {
+                    requestAnimationFrame(frame);
+                }
+            }());
+        }
+    </script>
 </body>
 </html>
 
