@@ -1,0 +1,88 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>С 8 Марта 💐</title>
+
+<style>
+body {
+    margin: 0;
+    font-family: Arial, sans-serif;
+    background: linear-gradient(to bottom, #ffdde1, #ee9ca7);
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 100vh;
+    text-align: center;
+    color: white;
+    overflow: hidden;
+}
+
+.container {
+    max-width: 500px;
+}
+
+h1 {
+    font-size: 42px;
+    animation: fadeIn 2s ease-in-out;
+}
+
+p {
+    font-size: 20px;
+    opacity: 0;
+    transition: 1s;
+}
+
+button {
+    padding: 15px 30px;
+    font-size: 18px;
+    border: none;
+    border-radius: 30px;
+    background: white;
+    color: #ee9ca7;
+    cursor: pointer;
+    margin-top: 20px;
+    transition: 0.3s;
+}
+
+button:hover {
+    transform: scale(1.1);
+}
+
+@keyframes fadeIn {
+    from {opacity: 0;}
+    to {opacity: 1;}
+}
+</style>
+</head>
+
+<body>
+
+<div class="container">
+    <h1>🌸8-наурыз халықаралық қыз-келіншектер мейрамы құтты болсын!!🌸</h1>
+    <button onclick="showMessage()">Открыть открытку 💌</button>
+    <p id="message">
+     Құрметті 11 “Ә” сыныптың ару қыздары және ардақты тәрбиешіміз – Малика апай!
+Сіздерді көктемнің ең көркем мерекесі — 8 наурыз Халықаралық әйелдер күнімен шын жүректен құттықтаймыз! 🌸
+Әрдайым жүздеріңізден күлкі кетпей, жүректеріңіз махаббат пен мейірімге толы болсын.
+Армандарыңыз асқақ, қадамдарыңыз нық, болашақтарыңыз жарқын болғай!
+Малика апай, сіздің ақыл-кеңесіңіз бен қамқорлығыңыз біз үшін әрқашан үлкен тірек. Сізге зор денсаулық, шығармашылық табыс және шәкірттеріңіздің биік жетістіктерін көру бақыты бұйырсын!
+Осы мерекеге орай, баршаңызды
+9 наурыз күні сағат 18:00-де “Кәусар” шайханасында өтетін ауызашар дастарханына
+құрметпен шақырамыз! 🌙
+Кешіміз жылы жүзді әңгіме, шынайы күлкі және жақсы тілектерге толы болсын!
+
+Ізгі тілекпен,
+11 “Ә” сыныбы ұлдары және Дастан ағай.
+    </p>
+</div>
+
+<script>
+function showMessage() {
+    document.getElementById("message").style.opacity = "1";
+}
+</script>
+
+</body>
+</html>
